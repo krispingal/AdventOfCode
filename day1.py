@@ -1,16 +1,13 @@
 """ Day1 of Advent of Code"""
 
-def read_input(filename):
-    with open(filename) as f:
-        for line in f:
-            yield int(line)
+from util.utils import read_input
 
 def part1(filename):
     """Find the resulting freq"""
     freq = 0
     changing_freq = read_input(filename)
     for change in changing_freq:
-        freq += change
+        freq += int(change)
     return freq
 
 def part2(filename):
@@ -21,7 +18,7 @@ def part2(filename):
     while True:
         changing_freq = read_input(filename)
         for change in changing_freq:
-            freq += change
+            freq += int(change)
             if freq not in freq_list:
                 freq_list.add(freq)
             else:
@@ -29,6 +26,7 @@ def part2(filename):
 
 if __name__ == '__main__':
     filename = f'data/day1/input'
+    print('AOC Day 1')
     while True:
         response =int(input('Which part should be run ? press 0 to exit : '))
         if response == 1:
