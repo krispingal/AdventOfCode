@@ -15,6 +15,7 @@ def part1(equations: list[tuple[int, list[int]]]) -> int:
 
     def is_possible(k, vals, cur) -> bool:
         n = len(vals)
+        if cur > k: return False
         if not n:
             return k == cur
         return is_possible(k, vals[1:], cur * vals[0]) or is_possible(k, vals[1:], cur + vals[0])
@@ -31,6 +32,7 @@ def part2(equations: list[tuple[int, list[int]]]) -> int:
 
     def is_possible(k, vals, cur) -> bool:
         n = len(vals)
+        if cur > k: return False
         if not n:
             return k == cur
         v1 = cur * vals[0]
@@ -47,7 +49,6 @@ def part2(equations: list[tuple[int, list[int]]]) -> int:
 
 if __name__ == "__main__":
     eqn = read_file()
-    # print(eqn)
     #res1 = part1(eqn)
     res2 = part2(eqn)
 
